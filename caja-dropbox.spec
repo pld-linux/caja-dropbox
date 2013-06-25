@@ -2,12 +2,14 @@ Summary:	Dropbox extension for Caja
 Summary(pl.UTF-8):	Rozszerzenie Dropbox dla Caja
 Name:		caja-dropbox
 Version:	0.7.1
-Release:	0.1
+Release:	1
 License:	GPL v2 with exceptions
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.4/%{name}-%{version}.tar.xz
 # Source0-md5:	36fb90fe6fa1463c94707565c98c30c7
 Patch0:		dropboxd-path.patch
+Patch1:		%{name}.patch
+Patch2:		caja-versions.patch
 URL:		http://getdropbox.com/
 BuildRequires:	glib2-devel >= 1:2.14.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
@@ -37,6 +39,8 @@ pomiędzy określonymi maszynami.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 NOCONFIGURE=1 ./autogen.sh
@@ -48,9 +52,12 @@ NOCONFIGURE=1 ./autogen.sh
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT%{_desktopdir}/{,caja-}dropbox.desktop
+mv $RPM_BUILD_ROOT%{_bindir}/{,caja-}dropbox
+%{__sed} -i -e '/Exec=/ s/dropbox/%{name}/' $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/caja/extensions-2.0/*.la
 
@@ -66,12 +73,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
-%attr(755,root,root) %{_bindir}/dropbox
+%attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-dropbox.so
 %{_iconsdir}/hicolor/*/*/*.png
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/emblems
 %{_datadir}/%{name}/emblems/*.icon
 %{_datadir}/%{name}/emblems/*.png
-%{_desktopdir}/dropbox.desktop
+%{_desktopdir}/%{name}.desktop
 %{_mandir}/man1/*.1*
