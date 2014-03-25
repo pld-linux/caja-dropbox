@@ -1,0 +1,11 @@
+--- caja-dropbox-1.7.90/data/caja-dropbox.desktop~	2013-08-02 13:08:23.000000000 +0300
++++ caja-dropbox-1.7.90/data/caja-dropbox.desktop	2014-03-25 16:25:28.408526848 +0200
+@@ -3,7 +3,7 @@
+ Name=caja-Dropbox
+ GenericName=File Synchronizer For Mate
+ Comment=Sync your files across computers and to the web
+-Exec=dropbox start -i
++Exec=caja-dropbox start -i
+ Terminal=false
+ Type=Application
+ Icon=caja-dropbox

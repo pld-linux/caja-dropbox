@@ -1,14 +1,22 @@
---- nautilus-dropbox-0.6.3/dropbox.in~	2010-06-15 02:36:52.000000000 +0300
-+++ nautilus-dropbox-0.6.3/dropbox.in	2010-07-08 20:55:18.697946297 +0300
-@@ -524,7 +524,10 @@
+--- caja-dropbox-1.7.90/./caja-dropbox.in~	2013-08-02 13:08:23.000000000 +0300
++++ caja-dropbox-1.7.90/./caja-dropbox.in	2014-03-25 16:12:37.274282401 +0200
+@@ -55,7 +55,9 @@
+ UNPACKING = u"Unpacking Dropbox... %d%%"
+ 
+ PARENT_DIR = os.path.expanduser("~")
+-DROPBOXD_PATH = "%s/.dropbox-dist/dropboxd" % PARENT_DIR
++DROPBOXD_PATH = "/usr/bin/dropboxd"
++if not os.access(DROPBOXD_PATH , os.X_OK):
++	DROPBOXD_PATH = "%s/.dropbox-dist/dropboxd" % PARENT_DIR
+ DESKTOP_FILE = u"@DESKTOP_FILE_DIR@/dropbox.desktop"
+ 
+ enc = locale.getpreferredencoding()
+@@ -699,7 +701,7 @@
      return newmeth
  
  def start_dropbox():
 -    db_path = os.path.expanduser(u"~/.dropbox-dist/dropboxd").encode(sys.getfilesystemencoding())
-+    # first try dropboxd from system, fallback to user install
-+    db_path = "/usr/bin/dropboxd"
-+    if not os.access(db_path, os.X_OK):
-+        db_path = os.path.expanduser(u"~/.dropbox-dist/dropboxd").encode(sys.getfilesystemencoding())
++    db_path = DROPBOXD_PATH
      if os.access(db_path, os.X_OK):
          f = open("/dev/null", "w")
          # we don't reap the child because we're gonna die anyway, let init do it
