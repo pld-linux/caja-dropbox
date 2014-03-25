@@ -9,3 +9,23 @@
  Terminal=false
  Type=Application
  Icon=caja-dropbox
+--- caja-dropbox-1.7.90/caja-dropbox.in~	2014-03-25 21:50:16.000000000 +0000
++++ caja-dropbox-1.7.90/caja-dropbox.in	2014-03-25 21:50:42.062906663 +0000
+@@ -58,7 +58,7 @@
+ DROPBOXD_PATH = "/usr/bin/dropboxd"
+ if not os.access(DROPBOXD_PATH , os.X_OK):
+ 	DROPBOXD_PATH = "%s/.dropbox-dist/dropboxd" % PARENT_DIR
+-DESKTOP_FILE = u"@DESKTOP_FILE_DIR@/dropbox.desktop"
++DESKTOP_FILE = u"@DESKTOP_FILE_DIR@/caja-dropbox.desktop"
+ 
+ enc = locale.getpreferredencoding()
+ 
+@@ -1252,7 +1252,7 @@ def reroll_autostart(should_autostart):
+     # UBUNTU
+     if u".config" in contents:
+         autostart_dir = os.path.join(home_dir, u".config", u"autostart")
+-        autostart_link = os.path.join(autostart_dir, u"dropbox.desktop")
++        autostart_link = os.path.join(autostart_dir, u"caja-dropbox.desktop")
+         if should_autostart:
+             if os.path.exists(DESKTOP_FILE):
+                 if not os.path.exists(autostart_dir):
