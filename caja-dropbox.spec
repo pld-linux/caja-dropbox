@@ -2,7 +2,7 @@ Summary:	Dropbox extension for Caja
 Summary(pl.UTF-8):	Rozszerzenie Dropbox dla Caja
 Name:		caja-dropbox
 Version:	1.7.90
-Release:	2.3
+Release:	3
 License:	GPL v2 with exceptions
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.7/%{name}-%{version}.tar.xz
@@ -11,6 +11,7 @@ Patch0:		dropboxd-path.patch
 Patch1:		desktop.patch
 Patch2:		caja-versions.patch
 Patch3:		https://github.com/glensc/caja-dropbox/compare/dl-fixes.patch
+Patch4:		python-gpgme-pkg.patch
 URL:		http://getdropbox.com/
 BuildRequires:	caja-devel >= 1.1.0
 BuildRequires:	glib2-devel >= 1:2.14.0
@@ -47,6 +48,7 @@ pomiędzy określonymi maszynami.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %configure \
