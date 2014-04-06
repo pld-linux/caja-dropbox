@@ -16,10 +16,8 @@ URL:		http://getdropbox.com/
 BuildRequires:	caja-devel >= 1.1.0
 BuildRequires:	glib2-devel >= 1:2.14.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	libnotify-devel >= 0.4.4
 BuildRequires:	pkgconfig
 BuildRequires:	python-docutils
-BuildRequires:	python-pygtk-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk-update-icon-cache
