@@ -2,7 +2,7 @@ Summary:	Dropbox extension for Caja
 Summary(pl.UTF-8):	Rozszerzenie Dropbox dla Caja
 Name:		caja-dropbox
 Version:	1.7.90
-Release:	2
+Release:	2.1
 License:	GPL v2 with exceptions
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.7/%{name}-%{version}.tar.xz
@@ -24,6 +24,8 @@ Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	caja
 Requires:	python-modules
+Requires:	python-pygtk-gtk
+Requires:	xdg-utils
 Suggests:	dropbox
 Suggests:	python-pygpgme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
