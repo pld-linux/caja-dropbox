@@ -1,9 +1,9 @@
-Summary:	Dropbox extension for Caja
-Summary(pl.UTF-8):	Rozszerzenie Dropbox dla Caja
+Summary:	Dropbox extension for Caja file manager
+Summary(pl.UTF-8):	Rozszerzenie Dropbox dla zarządcy plików Caja
 Name:		caja-dropbox
 Version:	1.7.90
 Release:	3
-License:	GPL v2 with exceptions
+License:	GPL v3+ (code), CC-BY-ND v3.0 (images)
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.7/%{name}-%{version}.tar.xz
 # Source0-md5:	877e610ce51f3cc69d8da2daeb58f61d
@@ -14,31 +14,35 @@ Patch3:		https://github.com/glensc/caja-dropbox/compare/dl-fixes.patch
 Patch4:		python-gpgme-pkg.patch
 URL:		http://getdropbox.com/
 BuildRequires:	caja-devel >= 1.1.0
+# rst2man
+BuildRequires:	docutils
 BuildRequires:	glib2-devel >= 1:2.14.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	pkgconfig
 BuildRequires:	python-docutils
+BuildRequires:	python-pygtk-gtk >= 2:2
+BuildRequires:	python-pygobject >= 2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
-Requires:	caja
+Requires:	caja >= 1.1.0
 Requires:	python-modules
-Requires:	python-pygtk-gtk
+Requires:	python-pygtk-gtk >= 2:2
 Requires:	xdg-utils
 Suggests:	dropbox
 Suggests:	python-pygpgme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Dropbox extension for Caja used as sync, versioning and backup
-software for your local and remote resources between a number of
-machines.
+Dropbox extension for Caja file manager, used as sync, versioning and
+backup software for your local and remote resources between a number
+of machines.
 
 %description -l pl.UTF-8
-Rozszerzenie Dropbox dla Caja używane do synchronizacji, obsługi
-wersji oraz tworzenia kopii zapasowych zasobów lokalnych oraz zdalnych
-pomiędzy określonymi maszynami.
+Rozszerzenie Dropbox dla zarządcy plików Caja, służące do
+synchronizacji, obsługi wersji oraz tworzenia kopii zapasowych zasobów
+lokalnych oraz zdalnych pomiędzy określonymi maszynami.
 
 %prep
 %setup -q
@@ -75,10 +79,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-dropbox.so
-%{_iconsdir}/hicolor/*/*/*.png
+%{_iconsdir}/hicolor/*/apps/caja-dropbox.png
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/emblems
 %{_datadir}/%{name}/emblems/*.icon
 %{_datadir}/%{name}/emblems/*.png
 %{_desktopdir}/%{name}.desktop
-%{_mandir}/man1/*.1*
+%{_mandir}/man1/caja-dropbox.1*
