@@ -1,12 +1,12 @@
 Summary:	Dropbox extension for Caja file manager
 Summary(pl.UTF-8):	Rozszerzenie Dropbox dla zarządcy plików Caja
 Name:		caja-dropbox
-Version:	1.8.0
-Release:	2
+Version:	1.10.0
+Release:	1
 License:	GPL v3+ (code), CC-BY-ND v3.0 (images)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
-# Source0-md5:	d545e4185e5766b88870b94b3c2e534c
+Source0:	http://pub.mate-desktop.org/releases/1.10/%{name}-%{version}.tar.xz
+# Source0-md5:	8c382882e94193fb2e1793dad2441d2c
 Patch0:		dropboxd-path.patch
 Patch1:		python-gpgme-pkg.patch
 URL:		http://getdropbox.com/
@@ -73,10 +73,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_libdir}/caja/extensions-2.0/libcaja-dropbox.so
-%{_iconsdir}/hicolor/*/apps/caja-dropbox.png
+%{_datadir}/caja/extensions/libcaja-dropbox.caja-extension
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/emblems
 %{_datadir}/%{name}/emblems/*.icon
 %{_datadir}/%{name}/emblems/*.png
 %{_desktopdir}/%{name}.desktop
+%{_iconsdir}/hicolor/*/apps/caja-dropbox.png
 %{_mandir}/man1/caja-dropbox.1*
