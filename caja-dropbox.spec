@@ -1,24 +1,27 @@
 Summary:	Dropbox extension for Caja file manager
 Summary(pl.UTF-8):	Rozszerzenie Dropbox dla zarządcy plików Caja
 Name:		caja-dropbox
-Version:	1.10.0
+Version:	1.12.0
 Release:	1
 License:	GPL v3+ (code), CC-BY-ND v3.0 (images)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.10/%{name}-%{version}.tar.xz
-# Source0-md5:	8c382882e94193fb2e1793dad2441d2c
+Source0:	http://pub.mate-desktop.org/releases/1.12/%{name}-%{version}.tar.xz
+# Source0-md5:	b125a772b2818d5396271fbb87ea1bbf
 Patch0:		dropboxd-path.patch
 Patch1:		python-gpgme-pkg.patch
 URL:		http://getdropbox.com/
+BuildRequires:	autoconf
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	caja-devel >= 1.1.0
 # rst2man
 BuildRequires:	docutils
 BuildRequires:	glib2-devel >= 1:2.14.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-docutils
-BuildRequires:	python-pygtk-gtk >= 2:2
 BuildRequires:	python-pygobject >= 2
+BuildRequires:	python-pygtk-gtk >= 2:2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk-update-icon-cache
@@ -47,6 +50,10 @@ lokalnych oraz zdalnych pomiędzy określonymi maszynami.
 %patch1 -p1
 
 %build
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--disable-silent-rules \
 	--disable-static
