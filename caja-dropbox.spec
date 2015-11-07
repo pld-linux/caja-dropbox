@@ -10,7 +10,7 @@ Source0:	http://pub.mate-desktop.org/releases/1.12/%{name}-%{version}.tar.xz
 Patch0:		dropboxd-path.patch
 Patch1:		python-gpgme-pkg.patch
 URL:		http://getdropbox.com/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	caja-devel >= 1.1.0
 # rst2man
@@ -19,6 +19,7 @@ BuildRequires:	glib2-devel >= 1:2.14.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	python
 BuildRequires:	python-docutils
 BuildRequires:	python-pygobject >= 2
 BuildRequires:	python-pygtk-gtk >= 2:2
@@ -50,7 +51,8 @@ lokalnych oraz zdalnych pomiędzy określonymi maszynami.
 %patch1 -p1
 
 %build
-%{__aclocal}
+%{__libtoolize}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
