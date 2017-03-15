@@ -1,22 +1,21 @@
 Summary:	Dropbox extension for Caja file manager
 Summary(pl.UTF-8):	Rozszerzenie Dropbox dla zarządcy plików Caja
 Name:		caja-dropbox
-Version:	1.16.0
+Version:	1.18.0
 Release:	1
 License:	GPL v3+ (code), CC-BY-ND v3.0 (images)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.16/%{name}-%{version}.tar.xz
-# Source0-md5:	8a9740fcd1383c1763a75063879b8b9a
+Source0:	http://pub.mate-desktop.org/releases/1.18/%{name}-%{version}.tar.xz
+# Source0-md5:	f35289c4e93831f8f65bfc6d06f68dfc
 Patch0:		dropboxd-path.patch
 Patch1:		python-gpgme-pkg.patch
 URL:		http://getdropbox.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	caja-devel >= 1.1.0
+BuildRequires:	caja-devel >= 1.17.1
 # rst2man
 BuildRequires:	docutils
-BuildRequires:	glib2-devel >= 1:2.14.0
-BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python
@@ -27,7 +26,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
-Requires:	caja >= 1.1.0
+Requires:	caja >= 1.17.1
 Requires:	python-modules
 Requires:	python-pygtk-gtk >= 2:2
 Requires:	xdg-utils
