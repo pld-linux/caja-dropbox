@@ -27,6 +27,7 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	caja >= 1.17.1
+Requires:	glib2 >= 1:2.26.0
 Requires:	python-modules
 Requires:	python-pygtk-gtk >= 2:2
 Requires:	xdg-utils
