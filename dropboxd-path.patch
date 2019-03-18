@@ -8,15 +8,6 @@
 +DROPBOXD_PATH = "/usr/bin/dropboxd"
 +if not os.access(DROPBOXD_PATH , os.X_OK):
 +	DROPBOXD_PATH = "%s/.dropbox-dist/dropboxd" % PARENT_DIR
- DESKTOP_FILE = u"@DESKTOP_FILE_DIR@/caja-dropbox.desktop"
+ DESKTOP_FILE = "@DESKTOP_FILE_DIR@/caja-dropbox.desktop"
  
  enc = locale.getpreferredencoding()
-@@ -699,7 +701,7 @@
-     return newmeth
- 
- def start_dropbox():
--    db_path = os.path.expanduser(u"~/.dropbox-dist/dropboxd").encode(sys.getfilesystemencoding())
-+    db_path = DROPBOXD_PATH
-     if os.access(db_path, os.X_OK):
-         f = open("/dev/null", "w")
-         # we don't reap the child because we're gonna die anyway, let init do it

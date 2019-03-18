@@ -1,14 +1,14 @@
 Summary:	Dropbox extension for Caja file manager
 Summary(pl.UTF-8):	Rozszerzenie Dropbox dla zarządcy plików Caja
 Name:		caja-dropbox
-Version:	1.20.0
+Version:	1.22.0
 Release:	1
 License:	GPL v3+ (code), CC-BY-ND v3.0 (images)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.20/%{name}-%{version}.tar.xz
-# Source0-md5:	fa026659ae58a48818855b5d8c4da39c
+Source0:	http://pub.mate-desktop.org/releases/1.22/%{name}-%{version}.tar.xz
+# Source0-md5:	8cd368c473a6586631cfcfae38c1c436
 Patch0:		dropboxd-path.patch
-Patch1:		python-gpgme-pkg.patch
+Patch1:		python-gpg-pkg.patch
 URL:		http://getdropbox.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
@@ -18,21 +18,21 @@ BuildRequires:	docutils
 BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	python
-BuildRequires:	python-docutils
-BuildRequires:	python-pygobject >= 2
-BuildRequires:	python-pygtk-gtk >= 2:2
+BuildRequires:	python3
+BuildRequires:	python3-docutils
+BuildRequires:	python3-pygobject3
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	caja >= 1.17.1
 Requires:	glib2 >= 1:2.50.0
-Requires:	python-modules
-Requires:	python-pygtk-gtk >= 2:2
+Requires:	gtk+3
+Requires:	python3-pygobject3
+Requires:	python3-modules
 Requires:	xdg-utils
 Suggests:	dropbox
-Suggests:	python-pygpgme
+Suggests:	python3-gpg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
