@@ -1,12 +1,12 @@
 Summary:	Dropbox extension for Caja file manager
 Summary(pl.UTF-8):	Rozszerzenie Dropbox dla zarządcy plików Caja
 Name:		caja-dropbox
-Version:	1.22.0
+Version:	1.22.1
 Release:	1
 License:	GPL v3+ (code), CC-BY-ND v3.0 (images)
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.22/%{name}-%{version}.tar.xz
-# Source0-md5:	8cd368c473a6586631cfcfae38c1c436
+# Source0-md5:	d83e2913454d2b7da026bed377108b50
 Patch0:		dropboxd-path.patch
 Patch1:		python-gpg-pkg.patch
 URL:		http://getdropbox.com/
