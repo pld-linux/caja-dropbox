@@ -1,12 +1,12 @@
 Summary:	Dropbox extension for Caja file manager
 Summary(pl.UTF-8):	Rozszerzenie Dropbox dla zarządcy plików Caja
 Name:		caja-dropbox
-Version:	1.24.0
+Version:	1.26.0
 Release:	1
 License:	GPL v3+ (code), CC-BY-ND v3.0 (images)
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.24/%{name}-%{version}.tar.xz
-# Source0-md5:	0904ce2ca9d7205c9b39bf61a009a6cb
+Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
+# Source0-md5:	91a4a5e8b04fe7a710db07882b944405
 Patch0:		dropboxd-path.patch
 Patch1:		python-gpg-pkg.patch
 URL:		http://getdropbox.com/
@@ -15,6 +15,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	caja-devel >= 1.17.1
 # rst2man
 BuildRequires:	docutils
+BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -23,6 +24,8 @@ BuildRequires:	python3-docutils
 BuildRequires:	python3-pygobject3
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	caja >= 1.17.1

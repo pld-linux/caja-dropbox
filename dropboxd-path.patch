@@ -1,7 +1,7 @@
 --- caja-dropbox-1.8.0/./caja-dropbox.in~	2014-08-11 20:06:44.000000000 +0300
 +++ caja-dropbox-1.8.0/./caja-dropbox.in	2014-08-11 20:09:13.478183272 +0300
 @@ -61,7 +61,9 @@
- UNPACKING = u"Unpacking Dropbox... %d%%"
+ UNPACKING = _("Unpacking Dropbox... %d%%")
  
  PARENT_DIR = os.path.expanduser("~")
 -DROPBOXD_PATH = "%s/.dropbox-dist/dropboxd" % PARENT_DIR
