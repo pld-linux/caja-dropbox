@@ -19,11 +19,11 @@ BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	python3
+BuildRequires:	python3 >= 1:3
 BuildRequires:	python3-docutils
-BuildRequires:	python3-pygobject3
+BuildRequires:	python3-pygobject3 >= 3.0
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	rpmbuild(macros) >= 1.596
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
@@ -31,8 +31,8 @@ Requires(post,postun):	hicolor-icon-theme
 Requires:	caja >= 1.17.1
 Requires:	glib2 >= 1:2.50.0
 Requires:	gtk+3
-Requires:	python3-pygobject3
-Requires:	python3-modules
+Requires:	python3-pygobject3 >= 3.0
+Requires:	python3-modules >= 1:3
 Requires:	xdg-utils
 Suggests:	dropbox
 Suggests:	python3-gpg
@@ -68,10 +68,16 @@ lokalnych oraz zdalnych pomiędzy określonymi maszynami.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/caja/extensions-2.0/*.la
+
+# not supported by glibc (as of 2.34)
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %postun
 %update_icon_cache hicolor
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/%{name}
